@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("common/header.ejs"); %>
+    <div id="container">
+        <%- include("common/banner.ejs"); %>
+        <div class="center">
+            <h3>문의하기</h3>
+            <div class="formpre">
+                <p>지엔테크 제품에 대한 <span>궁금한 사항이나 관련 자료</span>가 필요하신 분들은 문의 글을 남겨주세요.<br>담당자 확인 후 전화나 메일로 답변드리겠습니다.</p>
+            </div>
+            <div class="brd_form">
+                <form id="myform" action="/add" method="post">
+                    <div class="inputBox">
+                        <label for="auther">작성자</label>
+                        <input id="auther" type="text" name="auther">
+                    </div>
+                    <div class="inputBox">
+                        <label for="title">제목</label>
+                        <input id="title" type="text" name="title">
+                    </div>
+                    <div class="txtBox">
+                        <label for="context">문의사항</label>
+                        <textarea id="context" name="context"></textarea>
+                    </div>
+                    <div class="sub_Btn">
+                    <button type="submit">문의하기</button>
+                    <a href="/list">취소</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include("common/footer.ejs"); %>
+</body>
+</html>

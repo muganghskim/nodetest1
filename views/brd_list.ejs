@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 목록페이지</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include("common/header.ejs"); %>
+    <div id="container">
+        <%- include("common/banner.ejs"); %>
+        <div class="center">
+            <h3>기업소식</h3>
+            <div class="brd_tabel">
+                <div class="tabel_info">
+                    <p>Total : <%- data.length %></p>
+                    <form class="surchBox" action="#" method="get">
+                        <select class="sec">
+                            <option>제목</option>
+                        </select>
+                        <div class="surchWrap">
+                            <input id="surch" type="text" name="surch">
+                            <button type="submit">검색</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="line_head">
+                    <div class="lh_id">번호</div>
+                    <div id="tb_head">제목</div>
+                    <div class="lh_at">작성자</div>
+                    <div class="lh_time">작성시간</div>
+                    <div class="lh_count">조회수</div>
+                </div>
+                <% for(let i = 0; i < data.length; i++){ %>
+                    <div class="line">
+                        <div class="el_id"><%- data[i].brdid %></div>
+                        <div class="el_title"><a href="/detail/<%- data[i].brdid %>"><%- data[i].brdtitle %></a></div>
+                        <div class="el_auther"><%- data[i].brdauther %></div>
+                        <div class="el_time"><%- data[i].brdtime %></div>
+                        <div class="el_count"><%- data[i].brdcount %></div>
+                    </div>    
+                <% } %>
+            </div>
+            <div class="write">
+                <a class="writeBtn" href="/insert">글쓰기</a>
+            </div>
+        </div>
+    </div>
+    <%- include("common/footer.ejs"); %>
+</body>
+</html>
